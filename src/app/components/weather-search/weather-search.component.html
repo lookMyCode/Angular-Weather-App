@@ -1,0 +1,24 @@
+<div class="row justify-content-center my-5">
+  <div class="col-12 col-md-10 col-lg-8">
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active tab_btn" data-toggle="tab" href="#current-loc" role="tab" aria-controls="current-loc" aria-selected="true" (click)="handleChangeType('current')">Aktualna lokalizacja</a>
+
+        <a class="nav-item nav-link tab_btn" data-toggle="tab" href="#search-form" role="tab" aria-controls="search-form" aria-selected="false" (click)="handleChangeType('search')">Wyszukaj</a>
+
+        <a class="nav-item nav-link tab_btn" data-toggle="tab" href="#select-form" role="tab" aria-controls="select-form" aria-selected="false" (click)="handleChangeType('select')">Wybierz</a>
+        
+        <a class="nav-item nav-link tab_btn" data-toggle="tab" href="#select-map" role="tab" aria-controls="select-map" aria-selected="false" (click)="handleChangeType('map')">Wybór na mapie</a>
+      </div>
+    </nav>
+    <div class="tab-content pt-4" id="nav-tabContent">
+      <app-current-geoloc *ngIf="searchType === 'current'"></app-current-geoloc>
+
+      <app-search-geoloc *ngIf="searchType === 'search'"></app-search-geoloc>
+
+      <app-select-geoloc *ngIf="searchType === 'select'"></app-select-geoloc>
+
+      <app-map-geoloc *ngIf="searchType === 'map'"></app-map-geoloc>
+    </div>
+  </div>
+</div>

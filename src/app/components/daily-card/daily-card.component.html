@@ -1,0 +1,35 @@
+<h5 class="card-title text-center my-3">Stanem na {{ date | date: "dd:MM" }}</h5>
+<img [src]="path" class="card-img-top weather_img" [title]="weather.weather[0].description" [alt]="weather.weather[0].description">
+<div class="card-body">
+  <h5 class="card-title text-center"><span class="mr-5">{{ weather.temp.max | number: '1.0-0' }} &deg;C</span><span class="text-secondary">{{ weather.temp.min | number: '1.0-0' }} &deg;C</span></h5>
+  <div class="container-fluid my-3">
+    <div class="row">
+      <div class="col-3 temp_desc">
+        <h6 class="text-center">Noc</h6>
+        <p class="text-center font-weight-bold" title="Temperatura">{{ weather.temp.night | number: '1.0-0' }} &deg;C</p>
+        <p class="text-center" title="Odczuwalna">{{ weather.feels_like.night | number: '1.0-0' }} &deg;C</p>
+      </div>
+      <div class="col-3 temp_desc">
+        <h6 class="text-center">Ranek</h6>
+        <p class="text-center font-weight-bold" title="Temperatura">{{ weather.temp.morn | number: '1.0-0' }} &deg;C</p>
+        <p class="text-center" title="Odczuwalna">{{ weather.feels_like.morn | number: '1.0-0' }} &deg;C</p>
+      </div>
+      <div class="col-3 temp_desc">
+        <h6 class="text-center">Dzień</h6>
+        <p class="text-center font-weight-bold" title="Temperatura">{{ weather.temp.day | number: '1.0-0' }} &deg;C</p>
+        <p class="text-center" title="Odczuwalna">{{ weather.feels_like.day | number: '1.0-0' }} &deg;C</p>
+      </div>
+      <div class="col-3 temp_desc">
+        <h6 class="text-center">Wieczór</h6>
+        <p class="text-center font-weight-bold" title="Temperatura">{{ weather.temp.eve | number: '1.0-0' }} &deg;C</p>
+        <p class="text-center" title="Odczuwalna">{{ weather.feels_like.eve | number: '1.0-0' }} &deg;C</p>
+      </div>
+    </div>
+  </div>
+  <p class="card-text">Ciśnienie: {{ weather.pressure }} hPa</p>
+  <p class="card-text">Wiatr: {{ weather.wind_speed }} km/h</p>
+  <p class="card-text" *ngIf="weather.wind_gust">Podmuch wiatru: {{ weather.wind_gust }} km/h</p>
+  <p class="card-text">Wilgotność: {{ weather.humidity }} %</p>
+  <p class="card-text" *ngIf="weather.rain">Opad deszczu: {{ weather.rain }} mm</p>
+  <p class="card-text" *ngIf="weather.snow">Opad śniegu: {{ weather.snow }} mm</p>
+</div>

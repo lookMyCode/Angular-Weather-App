@@ -1,0 +1,32 @@
+<div class="tab-pane fade" id="search-form" role="tabpanel" aria-labelledby="search-form-tab">
+  <h3 class="text-center">Znajdź miasto</h3>
+  <div class="input-group">
+    <input type="text" 
+      class="form-control" 
+      placeholder="Wpisz nazwę miasta" 
+      aria-label="Wpisz nazwę miasta" 
+      [(ngModel)]="value" 
+      (input)="getVariants()"
+    >
+    <div class="input-group-append">
+      <button 
+        class="btn btn-outline-primary" 
+        type="button" 
+        id="button-addon2"
+        (click)="sendGeoLoc()"
+      >
+        Wybierz
+      </button>
+    </div>
+  </div>
+  <div 
+    class="list-group" 
+    *ngIf="listOfTowns.length !== 0"
+  >
+    <a href="#" 
+      class="list-group-item list-group-item-action" 
+      *ngFor="let town of listOfTowns"  
+      (click)="setGeoLoc(town)" 
+    >{{ town.town }}, {{ town.region }}</a>
+  </div>
+</div>

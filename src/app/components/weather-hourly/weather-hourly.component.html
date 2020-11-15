@@ -1,0 +1,15 @@
+<div class="tab-pane">
+  <div class="container-fluid">
+    <div class="row">
+
+      <p *ngIf="weather === null; else weatherBlock">Loading...</p>
+
+      <ng-template #weatherBlock>
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 hourly_card" *ngFor="let w of weather">
+          <app-card [weather]="w"></app-card>
+        </div>
+      </ng-template>
+            
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="row justify-content-center my-5">
+  <div class="col-12 col-md-10">
+    <ul class="nav nav-pills mb-3">
+      <li class="nav-item" role="presentation">
+        <span 
+          [ngClass]="{
+            active: type === types[0]
+          }"
+          class="nav-link pill_btn"
+          (click)="changeWeatherType(types[0])"
+        >Aktualna</span>
+      </li>
+      <li class="nav-item" role="presentation">
+        <span 
+          [ngClass]="{
+            active: type === types[1]
+          }"
+          class="nav-link pill_btn"
+          (click)="changeWeatherType(types[1])"
+        >Godzinowa</span>
+      </li>
+      <li class="nav-item" role="presentation">
+        <span 
+          [ngClass]="{
+            active: type === types[2]
+          }"
+          class="nav-link pill_btn"
+          (click)="changeWeatherType(types[2])"
+        >Tydzień</span>
+      </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+
+        <router-outlet></router-outlet>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="card">
+  <h5 class="card-title text-center my-3">Stanem na {{ date | date: "HH:mm" }}</h5>
+  <img [src]="path" class="card-img-top weather_img" [title]="weather.weather[0].description" [alt]="weather.weather[0].description">
+  <div class="card-body">
+    <h5 class="card-title text-center">{{ weather.temp | number: '1.0-0' }} &deg;C</h5>
+    <p class="card-text">Odczuwalna: {{ weather.feels_like | number: '1.0-0' }} &deg;C</p>
+    <p class="card-text">Ciśnienie: {{ weather.pressure }} hPa</p>
+    <p class="card-text">Wiatr: {{ weather.wind_speed }} km/h</p>
+    <p class="card-text" *ngIf="weather.wind_gust">Podmuch wiatru: {{ weather.wind_gust }} km/h</p>
+    <p class="card-text">Wilgotność: {{ weather.humidity }} %</p>
+    <p class="card-text" *ngIf="weather.rain">Opad deszczu: {{ weather.rain['1h'] }} mm</p>
+    <p class="card-text" *ngIf="weather.snow">Opad śniegu: {{ weather.snow['1h'] }} mm</p>
+  </div>
+</div>

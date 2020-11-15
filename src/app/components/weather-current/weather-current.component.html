@@ -1,0 +1,6 @@
+<div class="tab-pane">
+  <p *ngIf="weather === null; else card">Loading...</p>
+  <ng-template #card>
+    <app-card [weather]="weather"></app-card>
+  </ng-template>
+</div>
